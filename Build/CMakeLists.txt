@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.18)
+project(ai_rl_helper)
+set(CMAKE_CXX_STANDARD 17)
+# Point LIBTORCH_ROOT to your LibTorch install; or pass -DCMAKE_PREFIX_PATH on the command line
+if(NOT DEFINED ENV{LIBTORCH_ROOT})
+  set(LIBTORCH_ROOT "/path/to/libtorch")
+else()
+  set(LIBTORCH_ROOT $ENV{LIBTORCH_ROOT})
+endif()
+find_package(Torch REQUIRED PATHS ${LIBTORCH_ROOT} NO_DEFAULT_PATH)
+add_executable(ai_rl_helper main.cpp)
+target_link_libraries(ai_rl_helper "${TORCH_LIBRARIES}")
+set_property(TARGET ai_rl_helper PROPERTY CXX_STANDARD 17)
