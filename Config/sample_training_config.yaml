@@ -1,0 +1,6 @@
+# Sample training hyperparameters
+batch_size: 64
+learning_rate: 1e-4
+gamma: 0.99
+max_episodes: 10000
+max_steps_per_episode: 1000
